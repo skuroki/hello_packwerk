@@ -78,6 +78,13 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    code_ownership (1.33.0)
+      code_teams (~> 1.0)
+      packs
+      sorbet-runtime (>= 0.5.10821)
+    code_teams (1.0.1)
+      sorbet-runtime
+    colorize (0.8.1)
     concurrent-ruby (1.2.2)
     constant_resolver (0.2.0)
     crass (1.0.6)
@@ -100,6 +107,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.3)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -125,6 +133,12 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.2-arm64-darwin)
       racc (~> 1.4)
+    packs (0.0.6)
+      sorbet-runtime
+    packs-rails (0.0.3)
+      activesupport
+      packs
+      railties
     packwerk (3.0.1)
       activesupport (>= 6.0)
       ast
@@ -136,9 +150,13 @@ GEM
       sorbet-runtime (>= 0.5.9914)
       zeitwerk (>= 2.6.1)
     parallel (1.23.0)
+    parse_packwerk (0.19.3)
+      sorbet-runtime
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pastel (0.8.0)
+      tty-color (~> 0.5)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -172,10 +190,13 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
+    rainbow (3.1.1)
     rake (13.0.6)
     redis (4.8.1)
+    regexp_parser (2.8.1)
     reline (0.3.5)
       io-console (~> 0.5)
+    rexml (3.2.5)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
@@ -193,6 +214,30 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.0)
+    rubocop (1.52.1)
+      json (~> 2.3)
+      parallel (~> 1.10)
+      parser (>= 3.2.2.3)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.29.0)
+      parser (>= 3.2.1.0)
+    rubocop-packs (0.0.39)
+      activesupport
+      packs
+      parse_packwerk
+      rubocop
+      rubocop-sorbet
+      sorbet-runtime
+    rubocop-sorbet (0.7.0)
+      rubocop (>= 0.90.0)
+    ruby-graphviz (1.2.5)
+      rexml
+    ruby-progressbar (1.13.0)
     smart_properties (1.17.0)
     sorbet-runtime (0.5.10880)
     sprockets (4.2.0)
@@ -207,12 +252,41 @@ GEM
       railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.3.2)
+    tty-color (0.6.0)
+    tty-cursor (0.7.1)
+    tty-prompt (0.23.1)
+      pastel (~> 0.8)
+      tty-reader (~> 0.8)
+    tty-reader (0.9.0)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.8)
+      wisper (~> 2.0)
+    tty-screen (0.8.1)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.4.2)
+    use_packs (0.0.20)
+      code_ownership (>= 1.33.0)
+      colorize
+      packs
+      packwerk
+      parse_packwerk
+      rubocop-packs
+      sorbet-runtime
+      thor
+      tty-prompt
+      visualize_packwerk
+    visualize_packwerk (0.2.1)
+      code_ownership
+      packs
+      parse_packwerk
+      rake
+      ruby-graphviz
+      sorbet-runtime
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -221,6 +295,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wisper (2.0.1)
     zeitwerk (2.6.8)
 
 PLATFORMS
@@ -231,6 +306,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  packs-rails
   packwerk
   puma (~> 5.0)
   rails (~> 7.0.5)
@@ -241,6 +317,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  use_packs
   web-console
 
 RUBY VERSION
