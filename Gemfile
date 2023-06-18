@@ -50,12 +50,17 @@ gem "bootsnap", require: false
 
 gem 'packwerk'
 gem 'packs-rails'
+gem 'dry-events'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'use_packs', require: false
+  gem 'packwerk-extensions', require: false
+  gem 'pry-rails'
 end
 
 group :development do

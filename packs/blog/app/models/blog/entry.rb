@@ -1,5 +1,7 @@
-class Blog::Entry < ApplicationRecord
-  after_create do
-    Top::Notification.create! content: "記事「#{title}」が作成されました"
+module Blog
+  class Entry < ApplicationRecord
+    after_create do
+      EventPublisher.publish('entries.created', title:)
+    end
   end
 end
