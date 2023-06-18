@@ -66,11 +66,20 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    ast (2.4.2)
+    better_html (2.0.1)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
+    constant_resolver (0.2.0)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -115,6 +124,20 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.2-arm64-darwin)
       racc (~> 1.4)
+    packwerk (3.0.1)
+      activesupport (>= 6.0)
+      ast
+      better_html
+      bundler
+      constant_resolver (>= 0.2.0)
+      parallel
+      parser
+      sorbet-runtime (>= 0.5.9914)
+      zeitwerk (>= 2.6.1)
+    parallel (1.23.0)
+    parser (3.2.2.3)
+      ast (~> 2.4.1)
+      racc
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -152,6 +175,8 @@ GEM
     redis (4.8.1)
     reline (0.3.5)
       io-console (~> 0.5)
+    smart_properties (1.17.0)
+    sorbet-runtime (0.5.10880)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -188,6 +213,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  packwerk
   puma (~> 5.0)
   rails (~> 7.0.5)
   redis (~> 4.0)
